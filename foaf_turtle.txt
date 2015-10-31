@@ -1,0 +1,38 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix admin: <http://webns.net/mvcb/> .
+
+<>
+    admin:errorReportsTo <mailto:leigh@ldodds.com> ;
+    admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic> ;
+    a foaf:PersonalProfileDocument ;
+    foaf:maker <https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944> ;
+    foaf:primaryTopic <https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944> .
+
+<https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944>
+    a foaf:Person ;
+    foaf:family_name "Fontanella De Santis" ;
+    foaf:givenname "Teresa Natalia" ;
+	foaf:knows [
+        a foaf:Person ;
+        foaf:mbox_sha1sum "c9481edcdce4ddcc747bc2f22b2ad788932cc591" ;
+        foaf:name "Miguel A. Fontanella"
+    ], [
+        a foaf:Person ;
+        foaf:mbox_sha1sum "9a2cd24f970392792d7fccfd9183445efbf85b17" ;
+        foaf:name "Rocío"
+    ] ;
+    foaf:mbox_sha1sum "c841d344093d1e08b7936f5334e2ac07d9cdf7e2" ;
+    foaf:name "Teresa Natalia Fontanella De Santis" ;
+    foaf:schoolHomepage <http://www.fastavilladevoto.com.ar/> ;
+    foaf:title "Srta" .
+	
+<https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944>
+	 foaf:depiction <http://www.futuro.cl/wp-content/blogs.dir/122/files/2013/03/Pink-Floyd-Dark-Side-Of-The-Moon.jpg">,
+			  <https://tallbloke.files.wordpress.com/2015/01/stonehenge.png> ;
+			 foaf:birthday '04-23' .
+
+<https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944>        foaf:depiction <http://www.futuro.cl/wp-content/blogs.dir/122/files/2013/ 03/Pink-Floyd-Dark-Side-Of-The-Moon.jpg">,	 <https://tallbloke.files.wordpress.com/2015/01/stonehenge.png> ;	  foaf:birthday '04-23' ;	 foaf:gender ‘Female’.
+
+<https://www.linkedin.com/pub/teresa-fontanella-de-santis/26/631/944> 	foaf:knows <https://ar.linkedin.com/pub/juan-martin-buireo/90/805/40b>;	foaf:interests <http://musicbrainz.org/artist/83d91898-7763-47d7-b03b-b92132375c47#_>, <http://musicbrainz.org/artist/38c684da-0f0c-432d-b6c0-99ef25cce3ed#_>.
