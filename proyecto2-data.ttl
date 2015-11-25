@@ -1,0 +1,236 @@
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix dsd: <http://eurostat.linked-statistics.org/dsd/> .
+@prefix data: <http://eurostat.linked-statistics.org/data/migr_resfirst#> . 
+@prefix property:  <http://eurostat.linked-statistics.org/property#> .
+@prefix reason: <http://eurostat.linked-statistics.org/dic/reason#> .
+@prefix citizen: <http://eurostat.linked-statistics.org/dic/citizen#> .
+@prefix duration: <http://eurostat.linked-statistics.org/dic/duration#> .
+@prefix unit: <http://eurostat.linked-statistics.org/dic/unit#> .
+@prefix geo: <http://eurostat.linked-statistics.org/dic/geo#> .
+@prefix freq: <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://eurostat.linked-statistics.org/data/migr_resfirst#A,TOTAL,ZW,TOTAL,PER,2013,SE> a qb:Observation ;
+	sdmx-dimension:freq freq:freq-A ;
+	property:reason reason:TOTAL ;
+	property:citizen citizen:ZW ;
+	property:duration duration:TOTAL ;
+	property:unit unit:PER ;
+	dcterms:date [ 2013-01-01 xsd:date;
+	property:geo geo:SE ;
+	sdmx-measure:obsValue 23 .
+
+<http://eurostat.linked-statistics.org/data/migr_resfirst#A,TOTAL,ZW,TOTAL,PER,2013,UK> a qb:Observation;
+ 	sdmx-dimension:freq freq:freq-A;
+	property:reason reason:TOTAL;
+	property:citizen citizen:ZW ;
+	property:duration duration:TOTAL ;
+	property:unit unit:PER ;
+	sdmx-dimension:timePeriod xsd:date 2013-01-01 ;
+	property:geo geo:UK ;
+	sdmx-measure:obsValue 1425 .
+
+<http://eurostat.linked-statistics.org/data/migr_resfirst#A,TOTAL,ZW,TOTAL,PER,2013,NO> a qb:Observation;
+	sdmx-dimension:freq freq:freq-A;
+	property:reason reason:TOTAL ;
+	property:citizen citizen:ZW ;
+	property:duration duration:TOTAL ;
+	property:unit unit:PER ;
+	sdmx-dimension:timePeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-01;
+	property:geo geo:NO ;
+	sdmx-measure:obsValue 14 .
+
+<http://eurostat.linked-statistics.org/data/migr_resfirst#A,TOTAL,ZW,TOTAL,PER,2013,CH> a qb:Observation;
+	sdmx-dimension:freq freq:freq-A;
+	property:reason reason:TOTAL;
+	property:citizen citizen:ZW;
+	property:duration duration:TOTAL;
+	property:unit unit:PER;
+	sdmx-dimension:timePeriod <http://www.w3.org/2001/XMLSchema#date">2013-01-01;
+	property:geo geo:CH;
+	sdmx-measure:obsValue>48 .
+
+citizen:ZW
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen;
+      skos:broader dbpedia:Republic ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ZW" ;
+      skos:prefLabel "Simbabwe"@de , "Zimbabwe"@fr , "Zimbabwe"@en .
+
+citizen:NL
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:citizen;
+    skos:inScheme dic:citizen ;
+    skos:broader dbpedia:Parliamentary_republic ;
+    skos:notation "NL" ;
+    skos:prefLabel "Netherlands"@en , "Niederlande"@de , "Pays-Bas"@fr .
+
+citizen:LT
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:citizen;
+    skos:broader dbpedia:Parliamentary_republic ;  
+    skos:inScheme dic:citizen ;
+    skos:notation "LT" ;
+    skos:prefLabel "Litauen"@de , "Lituanie"@fr , "Lithuania"@en .
+
+
+geo:SE rdf:type skos:Concept ;
+      qb4o:memberOf property:geo;
+      skos:broader geo:EUROPE;
+      skos:inScheme dic:geo ;
+      skos:notation "SE" ;
+      skos:prefLabel "Suède"@fr , "Sweden"@en , "Schweden"@de;
+      dsd:countryPopulation 9593000;
+      dsd:countrySup  450295.
+
+geo:CZ rdf:type skos:Concept;
+    qb4o:memberOf property:geo;
+    skos:broader geo:EUROPE; 
+    skos:inScheme dic:geo;  
+    skos:notation "CZ" ;
+    skos:prefLabel "Tschechische Republik"@de , "République tchèque"@fr, "Czech Republic"@en .
+
+geo:UK rdf:type skos:Concept ;
+      qb4o:memberOf property:geo;
+      skos:broader geo:EUROPE; 
+      skos:inScheme dic:geo ;
+      skos:notation "UK" ;
+      skos:prefLabel "Royaume-Uni"@fr , "United Kingdom"@en , "Vereinigtes Königreich"@de;
+      dsd:countryPopulation 64511000;
+      dsd:countrySup  243610.
+
+geo:SK rdf:type skos:Concept;
+    qb4o:memberOf property:geo;
+    skos:broader geo:EUROPE;
+    skos:inScheme dic:geo;    
+    skos:notation "SK" ;
+    skos:prefLabel "Slovaquie"@fr, "Slowakei"@de , "Slovakia"@en.
+
+geo:NO rdf:type skos:Concept;
+    qb4o:memberOf property:geo;
+    skos:broader geo:EUROPE;
+    skos:inScheme dic:geo;  
+    skos:notation "NO" ;
+    skos:prefLabel "Norvège"@fr, "Norway"@en, "Norwegen"@de;
+    dsd:countryPopulation 5165802;
+    dsd:countrySup  385156 .
+
+geo:CH rdf:type skos:Concept ;
+      qb4o:memberOf property:geo;
+      skos:broader geo:EUROPE;
+      skos:inScheme dic:geo ;
+      skos:notation "CH" ;
+      skos:prefLabel "Switzerland"@en , "Schweiz"@de , "Suisse"@fr;
+      dsd:countryPopulation 8140000;
+      dsd:countrySup  41285 .
+
+geo:EUROPE qb4o:memberOf schema:region ;
+    skos:broader geo:TOTAL;   
+    skos:prefLabel "Europe"@en.
+
+geo:TOTAL qb4o:memberOf schema:geoAll;
+    skos:prefLabel "All destinations”@en.
+    
+dbpedia:Parliamentary_republic qb4o:memberOf schema:governmentType;
+    skos:broader citizen:TOTAL;
+    skos:prefLabel "Parliamentary republic"@en;
+    skos:notation "Parliamentary republic"@en.
+
+dbpedia:Unitary_state qb4o:memberOf schema:governmentType;
+    skos:broader citizen:TOTAL;
+    skos:prefLabel "Unitary state"@en; 
+    skos:notation "Unitary state"@en.
+
+dbpedia:Federalism qb4o:memberOf schema:governmentType;
+    skos:broader citizen:TOTAL; 
+    skos:prefLabel "Federalism"@en;    
+    skos:notation "Federalism"@en.
+
+dbpedia:Federal_Government_of_Somalia qb4o:memberOf schema:governmentType;
+    skos:broader citizen:TOTAL;  
+    skos:prefLabel "Federal Government of Somalia"@en;
+    skos:notation "Federal Government of Somalia"@en.
+
+dbpedia:Republic qb4o:memberOf schema:governmentType;
+    skos:broader citizen:TOTAL;
+    skos:prefLabel "Republic"@en;  
+    skos:notation "Republic"@en .
+
+citizen:TOTAL qb4o:memberOf schema:politicsAll;
+    skos:prefLabel "All destinations”@en.
+
+dic:2013-01-01 rdf:type skos:Concept ;
+    dsd:dateID "2013-01-01"^^xsd:date;    
+    qb4o:memberOf dcterms:date;
+    skos:broader lustrum:2010 .
+
+lustrum:2010 rdf:type skos:Concept;
+    qb4o:memberOf property:lustrum;
+    skos:broader decade:2010;
+    dsd:lustrumID 2010;
+    skos:prefLabel "2010 to 2015 lustrum”@en.
+
+decade:2010 rdf:type skos:Concept;
+    qb4o:memberOf property:lustrum;
+    skos:broader time:TOTAL;
+    dsd:decadeID 2010;
+    skos:prefLabel "2010 to 2020 decade”@en.
+
+time:TOTAL qb4o:memberOf schema:timeAll;
+    skos:prefLabel "All dates”@en.
+
+duration:M_GE12
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:duration;
+    skos:inScheme dic:duration ;
+    skos:notation "M_GE12" ;
+    skos:prefLabel "12 mois ou plus"@fr , "12 Monate und mehr"@de , "12 months or over"@en .
+
+duration:M6-11
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:duration;
+    skos:inScheme dic:duration ;
+    skos:notation "M6-11" ;
+    skos:prefLabel "6 bis 11 Monate"@de , "De 6 à 11 mois"@fr , "From 6 to 11 months"@en .
+
+duration:TOTAL
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:duration;
+      skos:inScheme dic:duration ;
+      skos:notation "TOTAL" ;
+      skos:prefLabel "Insgesamt"@de , "Total"@fr , "Total"@en .
+
+reason:FAM
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:reason;
+    skos:inScheme dic:reason ;
+    skos:notation "FAM" ;
+    skos:prefLabel "Familiengründe"@de , "Raisons liées à la famille"@fr , "Family reasons"@en .
+
+reason:EDUC
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:reason;
+    skos:inScheme dic:reason ;
+    skos:notation "EDUC" ;
+    skos:prefLabel "Education reasons"@en , "Raisons liées à l'éducation"@fr , "Bildungsgründe"@de .
+
+reason:TOTAL
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:reason;
+      skos:inScheme dic:reason ;
+      skos:notation "TOTAL" ;
+      skos:prefLabel "Insgesamt"@de , "Total"@fr , "Total"@en .
+
+<http://eurostat.linked-statistics.org/dic/obs_status#r>
+    rdf:type skos:Concept ;
+    qb4o:memberOf property:obs_status;
+    skos:notation "r" ;
+    skos:prefLabel "revidiert"@de , "révisé"@fr , "revised"@en .
