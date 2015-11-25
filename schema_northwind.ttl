@@ -185,4 +185,4 @@
 			rr:column "Fax";
 			rr:datatype xsd:string
 		]
-	];
+	].
