@@ -8,111 +8,99 @@
 <#orders_Northwind>
 	a rr:TripleMap;
 	rr:tableName “Orders”;
-	rr:subjectMap [
-		Rr:class nwd:Order;
-		Rr:template “http://northwind.com.ar/db/order/{OrderID}”;
+	rr:subjectMap [	rr:class nwd:Order;
+		rr:template “http://northwind.com.ar/db/order/{OrderID}”
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:orderid;
-		rr:objectMap [
-			rr:column “OrderId”;
-		];
+		rr:objectMap [	rr:column “OrderId”];
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:hasCustomer;
 		rr:refObjectMap [
 			rr:parentTriplesMap <#customer_Northwind>;
-			rr:joinCondition [
-				rr:parent “CustomerID”;
-				rr:child “CustomerID”;
-			];
-		];
+			rr:joinCondition [ rr:parent “CustomerID”;
+				rr:child “CustomerID”
+			]
+		]
 	];
-	rr:predicateObjectMap [
-		rr:predicate nwd:hasEmployee;
-		rr:refObjectMap [
-			rr:parentTriplesMap <#employee_Northwind>;
-			rr:joinCondition [
-				rr:parent “EmployeeID”;
-				rr:child “EmployeeID”;
-			];
-		];
+	rr:predicateObjectMap [ rr:predicate nwd:hasEmployee;
+		rr:refObjectMap [	rr:parentTriplesMap <#employee_Northwind>;
+							rr:joinCondition [ rr:parent “EmployeeID”;
+								rr:child “EmployeeID”];
+		]
 	];
 
 	rr:predicateObjectMap [
 		rr:predicate nwd:orderdate;
-		rr:objectMap [
-			rr:column “OrderDate”;
-			rr:datatype xsd:dateTime;
-		];
+		rr:objectMap [	rr:column “OrderDate”;
+			rr:datatype xsd:dateTime
+		]
 	];
-	rr:predicateObjectMap [
-		rr:predicate nwd:requireddate;
-		rr:objectMap [
-			rr:column “RequiredDate”;
-			rr:datatype xsd:dateTime;
-		];
-	];
+	rr:predicateObjectMap [ rr:predicate nwd:requireddate;
+							rr:objectMap [
+								rr:column “RequiredDate”;
+								rr:datatype xsd:dateTime
+							]
+						];
 	rr:predicateObjectMap [
 		rr:predicate nwd:shippeddate;
-		rr:objectMap [
-			rr:column “ShippedDate”;
-			rr:datatype xsd:dateTime;
-		];
+		rr:objectMap [ rr:column “ShippedDate”;
+					rr:datatype xsd:dateTime
+				]
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate nwd:shipvia;
 		rr:refObjectMap [
 			rr:parentTriplesMap <#shippers_Northwind>;
-			rr:joinCondition [
-				rr:parent “ShipID”;
-				rr:child “ShipVia”;
-			];
-		];
+			rr:joinCondition [	rr:parent “ShipID”;
+							rr:child “ShipVia”
+				]
+		]
 	];
 
 	rr:predicateObjectMap [
 		rr:predicate foaf:name;
 		rr:objectMap [
 			rr:column “ShipName”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:address;
 		rr:objectMap [
 			rr:column “ShipAddress”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:city;
 		rr:objectMap [
 			rr:column “ShipCity”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 ];
 rr:predicateObjectMap [
 		rr:predicate nwd:region;
 		rr:objectMap [
 			rr:column “ShipRegion”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:postalcode;
 		rr:objectMap [
 			rr:column “ShipPostalCode”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:country;
 		rr:objectMap [
 			rr:column “ShipCountry”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 
 <#customers_Northwind>
@@ -120,81 +108,81 @@ rr:predicateObjectMap [
 	rr:tableName “Customers”;
 	rr:subjectMap [
 		rr:class nwd:Customer;
-		rr:template “http://northwind.com.ar/db/customer/{CustomerID}”;
+		rr:template “http://northwind.com.ar/db/customer/{CustomerID}”
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:customerid;
 		rr:objectMap [
-			rr:column “CustomerId”;
-		];
+			rr:column “CustomerId”
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:companyname;
 		rr:objectMap [
 			rr:column “CompanyName”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:contactname;
 		rr:objectMap [
 			rr:column “ContactName”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:contacttitle;
 		rr:objectMap [
 			rr:column “ContactTitle”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:address;
 		rr:objectMap [
 			rr:column “Address”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:city;
 		rr:objectMap [
 			rr:column “City”;
-			rr:datatype xsd:string;
-		];
-];
-rr:predicateObjectMap [
+			rr:datatype xsd:string
+		]
+	];
+	rr:predicateObjectMap [
 		rr:predicate nwd:region;
 		rr:objectMap [
 			rr:column “Region”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:postalcode;
 		rr:objectMap [
 			rr:column “PostalCode”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:country;
 		rr:objectMap [
 			rr:column “Country”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:phone;
 		rr:objectMap [
 			rr:column “Phone”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:fax;
 		rr:objectMap [
 			rr:column “Fax”;
-			rr:datatype xsd:string;
-		];
+			rr:datatype xsd:string
+		]
 	];
