@@ -7,20 +7,20 @@
 
 <#orders_Northwind>
 	a rr:TripleMap;
-	rr:tableName “Orders”;
+	rr:tableName "Orders";
 	rr:subjectMap [	rr:class nwd:Order;
-		rr:template “http://northwind.com.ar/db/order/{OrderID}”
+		rr:template "http://northwind.com.ar/db/order/{OrderID}"
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:orderid;
-		rr:objectMap [	rr:column “OrderId”];
+		rr:objectMap [	rr:column "OrderId"];
 	];
 	rr:predicateObjectMap [
 		rr:predicate nwd:hasCustomer;
 		rr:refObjectMap [
 			rr:parentTriplesMap <#customer_Northwind>;
-			rr:joinCondition [ rr:parent “CustomerID”;
-				rr:child “CustomerID”
+			rr:joinCondition [ rr:parent "CustomerID";
+				rr:child "CustomerID"
 			]
 		]
 	];
