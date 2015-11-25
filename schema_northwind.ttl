@@ -80,8 +80,8 @@
 			rr:column "ShipCity";
 			rr:datatype xsd:string
 		]
-];
-rr:predicateObjectMap [
+	];
+	rr:predicateObjectMap [
 		rr:predicate nwd:region;
 		rr:objectMap [
 			rr:column "ShipRegion";
