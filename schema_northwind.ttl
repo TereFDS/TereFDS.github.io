@@ -101,7 +101,7 @@ rr:predicateObjectMap [
 			rr:column "ShipCountry";
 			rr:datatype xsd:string
 		]
-	];
+	].
 
 <#customers_Northwind>
 	a rr:TripleMap;
