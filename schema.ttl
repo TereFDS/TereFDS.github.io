@@ -1,0 +1,214 @@
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix dsd: <http://eurostat.linked-statistics.org/dsd/> .
+@prefix property:  <http://eurostat.linked-statistics.org/property#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#dsd:migr_resfirst
+#     rdf:type qb:DataStructureDefinition ;
+#     qb:component  [ rdf:type qb:ComponentSpecification;
+#  	         qb4o:level property:unit;
+# 	         qb:order "1"^^xsd:int ] ;
+#    qb:component   [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level dcterms:date;
+#	          qb:order "2"^^xsd:int 
+#             ] ;
+#     qb:component  [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level property:reason;
+#	          qb:order "3"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb:measure sdmx-measure:obsValue;
+#	          qb4o:aggregateFunction qb4o:sum;
+#	          qb:order "4"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb:attribute property:obs_status;
+#	          qb:order "5"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level sdmx-dimension:freq;
+#	          qb:order "6"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level property:geo;
+#	          qb:order "7"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level property:duration;
+#	          qb:order "8"^^xsd:int 
+#             ] ;
+#     qb:component [ rdf:type qb:ComponentSpecification;
+#	          qb4o:level property:citizen;
+#	          qb:order "9"^^xsd:int 
+#             ]  .
+#     skos:notation "migr_resfirst_DSD" .
+
+#sdmx-dimension:freq a qb4o:LevelProperty .
+#dcterms:date rdf:type qb4o:LevelProperty;
+#		qb4o:hasAttribute dsd:dateID.
+#dsd:dateID a qb4o:LevelAttribute ;
+#		rdfs:label "Date"@en ;
+#		rdfs:range xsd:date .
+#property:reason a qb4o:LevelProperty;
+#		qb4o:hasAttribute dsd:reasonName.
+#dsd:reasonName a qb4o:LevelAttribute ;
+#		rdfs:label "Reason Name"@en ; 
+#		rdfs:range xsd:string .
+#sdmx-dimension:freq a qb4o:LevelProperty .
+#
+#property:geo a qb4o:LevelProperty;
+# 		rdfs:label "country level"@en;
+# 		qb4o:hasAttribute dsd:countryCode, dsd:countryName,
+#		dsd:countryPopulation, dsd:countrySup.
+#dsd:countryCode a qb4o:LevelAttribute ;
+#		rdfs:label "Country Name"@en ; 
+#		rdfs:range xsd:string.
+#dsd:countryName a qb4o:LevelAttribute ;
+#		rdfs:label "Country Name"@en ; 
+#		rdfs:range xsd:string.
+#dsd:countryPopulation a qb4o:LevelAttribute ;
+#		rdfs:label "Country Population"@en ;
+#		rdfs:range xsd:integer.
+#dsd:countrySup a qb4o:LevelAttribute ;
+#		rdfs:label "Country Surface in km^2"@en ; 
+#		rdfs:range xsd:double.
+#
+#property:duration a qb4o:LevelProperty;
+#		qb4o:hasAttribute dsd:durationID.
+#dsd:durationID a qb4o:LevelAttribute ;
+#		rdfs:label "Duration in months"@en ;
+#		rdfs:range xsd:integer .
+
+#property:citizen a qb4o:LevelProperty .
+#sdmx-measure:obsValue a qb:MeasureProperty .
+
+# Geographical dimension and its hierarchies 
+
+#property:geoDim a qb:DimensionProperty ;
+#		rdfs:label "Geographical dimension"@en ;
+#		qb4o:hasHierarchy property:geoHier.
+
+# Upper hierarchy levels for the geographical dimension
+
+#property:region a qb4o:LevelProperty ;
+#		rdfs:label "Geographical regions"@en;
+#		qb4o:hasAttribute dsd:regionName.
+
+#dsd:regionName a qb4o:LevelAttribute ;
+#		rdfs:label "Region Name"@en ;
+#		rdfs:range xsd:string .
+
+#property:geoAll a qb4o:LevelProperty ;
+#		rdfs:label "All reference areas"@en .
+#property:geoHier a qb4o:Hierarchy ;
+#		rdfs:label "Geographical hierarchy"@en ;
+#		qb4o:inDimension property:geoDim ;
+#		qb4o:hasLevel property:geo, property:region, property:geoAll .
+
+# Hierarchy steps for the schema:geoHier hierarchy
+
+#_:hs1 a qb4o:HierarchyStep ;
+#	qb4o:inHierarchy property:geoHier ;
+#	qb4o:childLevel property:region ;
+#	qb4o:parentLevel property:geoAll;
+#	qb4o:pcCardinality qb4o:ManyToOne .
+#_:hs2 a qb4o:HierarchyStep ;
+#	qb4o:inHierarchy property:geoHier ;
+#	qb4o:childLevel property:geo ;
+#	qb4o:parentLevel property:region;
+#	qb4o:pcCardinality qb4o:ManyToOne .
+
+# Citizenship dimension and its hierarchies 
+
+#property:citizenDim a qb:DimensionProperty ;
+#		rdfs:label "Citizenship dimension"@en ;
+#		qb4o:hasHierarchy property:politicsHier.
+
+# Upper political hierarchy levels for citizen dimension
+
+#property:government a qb4o:LevelProperty ;
+#		rdfs:label "Geographical regions"@en;
+#		qb4o:hasAttribute dsd:governmentType, dsd:maxAuthority.
+
+#dsd:governmentType a qb4o:LevelAttribute ;
+#		rdfs:label "Government Type"@en ; rdfs:range xsd:string.
+#dsd:maxAuthority a qb4o:LevelAttribute ;
+#		rdfs:label "Maxime Authority"@en;
+#		rdfs:range xsd:string.
+
+#property:politicsAll a qb4o:LevelProperty ;
+#		rdfs:label "All reference Politics"@en .
+#property:politicsHier a qb4o:Hierarchy ;
+#		rdfs:label "Political hierarchy"@en ;
+#		qb4o:inDimension property:citizenDim ;
+#		qb4o:hasLevel property:geo, property:government, property:politicsAll .
+
+# Hierarchy steps for the schema:politicsHier hierarchy
+
+#_:hs1 a qb4o:HierarchyStep ;
+#	qb4o:inHierarchy property:politicsHier ;
+#	qb4o:childLevel property:government ;
+#	qb4o:parentLevel property:politicsAll;
+#	qb4o:pcCardinality qb4o:ManyToOne .
+#_:hs2 a qb4o:HierarchyStep ;
+#	qb4o:inHierarchy property:politicsHier ;
+#	qb4o:childLevel property:geo ;
+#	qb4o:parentLevel property:government;
+#	qb4o:pcCardinality qb4o:ManyToOne .
+
+# Time dimension and its hierarchies 
+
+property:dateDim a qb:DimensionProperty ;
+		rdfs:label "Time dimension"@en ;
+		qb4o:hasHierarchy property:timeHier.
+
+# Upper hierarchy levels for the geographical dimension
+
+property:lustrum a qb4o:LevelProperty ;
+		rdfs:label "Lustrum time periods"@en;
+		qb4o:hasAttribute dsd:lustrumID.
+
+dsd:lustrumID a qb4o:LevelAttribute;
+		rdfs:label "Lustrum Id"@en; 
+		rdfs:range xsd:integer.
+
+property:decade a qb4o:LevelProperty ;
+		rdfs:label "Decade time periods"@en;
+		qb4o:hasAttribute dsd:decadeID.
+
+dsd:decadeID a qb4o:LevelAttribute;
+		rdfs:label "Decade Id"@en;
+		rdfs:range xsd:integer.
+
+property:timeAll a qb4o:LevelProperty ;
+		rdfs:label "All reference time periods"@en .
+property:timeHier a qb4o:Hierarchy ;
+		rdfs:label "Time period hierarchy"@en ;
+		qb4o:inDimension property:dateDim ;
+		qb4o:hasLevel dcterms:date, property:lustrum , property:decade,
+		property:timeAll .
+
+# Hierarchy steps for the schema:timeHier hierarchy
+
+_:hs1 a qb4o:HierarchyStep ;
+	qb4o:inHierarchy property:timeHier ;
+	qb4o:childLevel property:decade ;
+	qb4o:parentLevel property:timeAll;
+	qb4o:pcCardinality qb4o:ManyToOne .
+_:hs2 a qb4o:HierarchyStep ;
+	qb4o:inHierarchy property:timeHier ;
+	qb4o:childLevel property:lustrum ;
+	qb4o:parentLevel property:decade;
+	qb4o:pcCardinality qb4o:ManyToOne .
+_:hs3 a qb4o:HierarchyStep ;
+	qb4o:inHierarchy property:timeHier ;
+	qb4o:childLevel dcterms:date ;
+	qb4o:parentLevel property:lustrum;
+	qb4o:pcCardinality qb4o:ManyToOne .
