@@ -23,7 +23,7 @@
 	property:citizen citizen:ZW ;
 	property:duration duration:TOTAL ;
 	property:unit unit:PER ;
-	dcterms:date [ 2013-01-01 xsd:date;
+	dcterms:date dic:2013-01-01;
 	property:geo geo:SE ;
 	sdmx-measure:obsValue 23 .
 
@@ -33,7 +33,7 @@
 	property:citizen citizen:ZW ;
 	property:duration duration:TOTAL ;
 	property:unit unit:PER ;
-	sdmx-dimension:timePeriod xsd:date 2013-01-01 ;
+	dcterms:date dic:2013-01-01 ;
 	property:geo geo:UK ;
 	sdmx-measure:obsValue 1425 .
 
@@ -53,7 +53,7 @@
 	property:citizen citizen:ZW;
 	property:duration duration:TOTAL;
 	property:unit unit:PER;
-	sdmx-dimension:timePeriod <http://www.w3.org/2001/XMLSchema#date">2013-01-01;
+	dcterms:date dic:2013-01-01;
 	property:geo geo:CH;
 	sdmx-measure:obsValue>48 .
 
@@ -132,39 +132,39 @@ geo:CH rdf:type skos:Concept ;
       dsd:countryPopulation 8140000;
       dsd:countrySup  41285 .
 
-geo:EUROPE qb4o:memberOf schema:region ;
+geo:EUROPE qb4o:memberOf property:region ;
     skos:broader geo:TOTAL;   
     skos:prefLabel "Europe"@en.
 
-geo:TOTAL qb4o:memberOf schema:geoAll;
+geo:TOTAL qb4o:memberOf property:geoAll;
     skos:prefLabel "All destinations”@en.
     
-dbpedia:Parliamentary_republic qb4o:memberOf schema:governmentType;
+dbpedia:Parliamentary_republic qb4o:memberOf property:governmentType;
     skos:broader citizen:TOTAL;
     skos:prefLabel "Parliamentary republic"@en;
     skos:notation "Parliamentary republic"@en.
 
-dbpedia:Unitary_state qb4o:memberOf schema:governmentType;
+dbpedia:Unitary_state qb4o:memberOf property:governmentType;
     skos:broader citizen:TOTAL;
     skos:prefLabel "Unitary state"@en; 
     skos:notation "Unitary state"@en.
 
-dbpedia:Federalism qb4o:memberOf schema:governmentType;
+dbpedia:Federalism qb4o:memberOf property:governmentType;
     skos:broader citizen:TOTAL; 
     skos:prefLabel "Federalism"@en;    
     skos:notation "Federalism"@en.
 
-dbpedia:Federal_Government_of_Somalia qb4o:memberOf schema:governmentType;
+dbpedia:Federal_Government_of_Somalia qb4o:memberOf property:governmentType;
     skos:broader citizen:TOTAL;  
     skos:prefLabel "Federal Government of Somalia"@en;
     skos:notation "Federal Government of Somalia"@en.
 
-dbpedia:Republic qb4o:memberOf schema:governmentType;
+dbpedia:Republic qb4o:memberOf property:governmentType;
     skos:broader citizen:TOTAL;
     skos:prefLabel "Republic"@en;  
     skos:notation "Republic"@en .
 
-citizen:TOTAL qb4o:memberOf schema:politicsAll;
+citizen:TOTAL qb4o:memberOf property:politicsAll;
     skos:prefLabel "All destinations”@en.
 
 dic:2013-01-01 rdf:type skos:Concept ;
