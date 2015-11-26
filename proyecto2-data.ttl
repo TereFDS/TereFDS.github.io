@@ -43,7 +43,7 @@
 	property:citizen citizen:ZW ;
 	property:duration duration:TOTAL ;
 	property:unit unit:PER ;
-	sdmx-dimension:timePeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-01;
+	dcterms:date dic:2013-01-01 ;
 	property:geo geo:NO ;
 	sdmx-measure:obsValue 14 .
 
@@ -184,7 +184,7 @@ decade:2010 rdf:type skos:Concept;
     dsd:decadeID 2010;
     skos:prefLabel "2010 to 2020 decade”@en.
 
-time:TOTAL qb4o:memberOf schema:timeAll;
+time:TOTAL qb4o:memberOf property:timeAll;
     skos:prefLabel "All dates”@en.
 
 duration:M_GE12
